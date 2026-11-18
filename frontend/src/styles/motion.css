@@ -1,0 +1,162 @@
+/* =========================================
+   MOTION — animations and ambient effects
+   All of it is switched off automatically for
+   people who prefer reduced motion (see bottom).
+========================================= */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(90, 167, 127, 0.5); }
+  50%      { opacity: 0.7; box-shadow: 0 0 0 5px rgba(90, 167, 127, 0); }
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-3%, 2%, 0) scale(1.08); }
+}
+
+/* Soft ambient light behind everything (neutral, very subtle) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(800px 460px at 85% 0%, rgba(207, 203, 194, 0.07), transparent 65%),
+    radial-gradient(700px 500px at 0% 100%, rgba(143, 168, 160, 0.06), transparent 65%);
+  animation: drift 28s ease-in-out infinite alternate;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Page change: gentle rise */
+.page-transition {
+  animation: fade-up 0.45s var(--ease) both;
+}
+
+/* Staggered entrance. Set style={{ '--i': n }} on an element with .reveal */
+.reveal {
+  animation: fade-up 0.6s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+.reveal-left {
+  animation: slide-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Live indicator dot */
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: live-blink 2.2s ease-in-out infinite;
+}
+
+/* Hover life: cards rise slightly, buttons press */
+.panel,
+.metric-card {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.panel:hover {
+  border-color: var(--border-strong);
+}
+
+.btn,
+.icon-btn,
+.avatar,
+.select {
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s var(--ease);
+}
+
+.btn:active,
+.icon-btn:active,
+.avatar:active {
+  transform: scale(0.94);
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+}
+
+/* Sidebar: icons nudge on hover, active item glides in */
+.nav-item {
+  transition: background 0.2s, color 0.2s, padding-left 0.25s var(--ease), border-color 0.2s;
+}
+
+.nav-item:hover {
+  padding-left: 14px;
+}
+
+.nav-item svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.nav-item:hover svg {
+  transform: scale(1.12);
+}
+
+.navigation .nav-item {
+  animation: slide-in 0.5s var(--ease) both;
+}
+
+.navigation .nav-item:nth-child(1) { animation-delay: 0.05s; }
+.navigation .nav-item:nth-child(2) { animation-delay: 0.10s; }
+.navigation .nav-item:nth-child(3) { animation-delay: 0.15s; }
+.navigation .nav-item:nth-child(4) { animation-delay: 0.20s; }
+.navigation .nav-item:nth-child(5) { animation-delay: 0.25s; }
+
+.brand-icon {
+  transition: transform 0.5s var(--ease);
+}
+
+.brand:hover .brand-icon {
+  transform: rotate(20deg) scale(1.06);
+}
+
+/* Popovers drop in */
+.popover {
+  animation: fade-up 0.2s var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

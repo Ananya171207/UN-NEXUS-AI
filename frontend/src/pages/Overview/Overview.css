@@ -1,0 +1,246 @@
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+/* MAP */
+
+.map-frame {
+  height: 380px;
+  border-bottom: 1px solid var(--border);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+/* EVENT FEED */
+
+.feed-panel .panel-body {
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.event-list,
+.module-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.event-item {
+  display: block;
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.event-item:hover {
+  background: var(--surface-2);
+}
+
+.event-item.selected {
+  background: var(--surface-3);
+  border-left-color: var(--accent);
+}
+
+.event-top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  margin-bottom: 4px;
+}
+
+.event-category {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.event-item strong {
+  display: block;
+  font-size: var(--fs-md);
+  font-weight: 500;
+}
+
+.event-item small {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.event-item p {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* MODULE LIST */
+
+.module-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  text-align: left;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.module-item:hover {
+  background: var(--surface-2);
+}
+
+.module-item > svg:first-child {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.module-item > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.module-item strong {
+  display: block;
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.module-item small {
+  display: block;
+  font-size: var(--fs-xs);
+}
+
+.chart-note,
+.page-footer {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.chart-note {
+  margin-top: var(--sp-3);
+}
+
+.page-footer {
+  text-align: center;
+  padding: var(--sp-3);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feed-panel .panel-body {
+    max-height: 340px;
+  }
+}
+
+@media (max-width: 600px) {
+  .metrics-grid {
+    gap: var(--sp-2);
+  }
+
+  .map-frame {
+    height: 290px;
+  }
+
+  .module-item small {
+    display: none;
+  }
+
+  .panel-header {
+    flex-wrap: wrap;
+  }
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.clock {
+  text-align: right;
+  line-height: 1.25;
+}
+
+.clock strong {
+  display: block;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3px;
+}
+
+.clock small {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* Event feed: smooth open of the selected item */
+.event-item p {
+  animation: fade-up 0.35s var(--ease) both;
+}
+
+.event-item {
+  transition: background 0.2s, padding-left 0.25s var(--ease);
+}
+
+.event-item:hover {
+  padding-left: calc(var(--sp-4) + 3px);
+}
+
+.module-item svg:last-child {
+  transition: transform 0.25s var(--ease), color 0.2s;
+}
+
+.module-item:hover svg:last-child {
+  transform: translate(2px, -2px);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .header-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .clock {
+    text-align: left;
+  }
+}

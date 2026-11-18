@@ -1,0 +1,70 @@
+/* =========================================
+   UN NEXUS AI — DESIGN TOKENS
+   Every colour, size and spacing value used by the
+   platform lives here. Change a value once and the
+   whole interface updates.
+========================================= */
+
+:root {
+  /* Surfaces (neutral charcoal) */
+  --bg-app: #0f0f10;
+  --bg-chrome: #151516;      /* sidebar + top bar */
+  --surface-1: #1a1a1c;      /* panels */
+  --surface-2: #222225;      /* raised / hover */
+  --surface-3: #2b2b2f;      /* selected */
+
+  /* Borders */
+  --border: #2e2e32;
+  --border-strong: #424247;
+
+  /* Text */
+  --text: #ebebe8;
+  --text-muted: #a0a09b;
+  --text-dim: #75756f;
+
+  /* Accents (muted, no neon) */
+  --accent: #cfcbc2;         /* warm silver */
+  --accent-soft: rgba(207, 203, 194, 0.10);
+  --teal: #8fa8a0;
+  --blue: #9a9a9a;
+  --green: #5aa77f;
+  --amber: #d1a050;
+  --red: #c85f5f;
+  --orange: #d98652;
+
+  /* Soft tints used for badges */
+  --green-soft: rgba(90, 167, 127, 0.14);
+  --amber-soft: rgba(209, 160, 80, 0.14);
+  --red-soft: rgba(200, 95, 95, 0.14);
+  --blue-soft: rgba(154, 154, 154, 0.14);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Consolas, monospace;
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-md: 13px;
+  --fs-lg: 15px;
+  --fs-xl: 22px;
+  --fs-2xl: 28px;
+
+  /* Spacing */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 28px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.3), 0 10px 26px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  /* Layout */
+  --sidebar-w: 232px;
+  --topbar-h: 56px;
+}

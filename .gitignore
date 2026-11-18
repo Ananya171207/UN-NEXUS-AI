@@ -1,0 +1,31 @@
+@'
+# Environment files and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/venv/
+**/.venv/
+.coverage
+htmlcov/
+
+# Frontend dependencies and builds
+**/node_modules/
+**/dist/
+
+# Local databases and generated caches
+/backend/app/data/ai_cache.sqlite3
+
+# Backups and duplicate copies
+/backend/backend/
+/backend_app_backup/
+/frontend/src-backup/
+/backend-current.zip
+
+# Logs
+*.log
+'@ | Set-Content -Path .gitignore -Encoding utf8

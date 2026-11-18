@@ -1,0 +1,72 @@
+// =====================================================================
+// SAMPLE EVENTS — DEMONSTRATION ENTRIES, NOT REAL NEWS
+// Every entry below is invented to show how the feed, map and timeline
+// behave. None of them describes a real event. The backend will supply
+// real, sourced events later.
+// `hoursAgo` is turned into a real timestamp by the service layer.
+// =====================================================================
+
+const e = (id, countryId, category, severity, title, summary, hoursAgo) => ({
+  id,
+  countryId,
+  category,
+  severity,
+  title,
+  summary,
+  hoursAgo,
+});
+
+export const sampleEvents = [
+  e('ev-01', 'NG', 'Economic', 'moderate', 'Currency volatility review',
+    'Demonstration entry showing how an economic monitoring item appears: exchange-rate movements flagged for analyst review.', 3),
+  e('ev-02', 'IN', 'Environmental', 'moderate', 'Heatwave advisory',
+    'Demonstration entry showing an environmental advisory with moderate severity.', 5),
+  e('ev-03', 'KE', 'Humanitarian', 'high', 'Food security watch',
+    'Demonstration entry showing a humanitarian item raised to high severity, with a recommended review by regional analysts.', 8),
+  e('ev-04', 'BR', 'Environmental', 'high', 'Wildfire risk alert',
+    'Demonstration entry showing a high-severity environmental alert.', 11),
+  e('ev-05', 'DE', 'Economic', 'low', 'Industrial output release',
+    'Demonstration entry showing a routine low-severity economic data release.', 14),
+  e('ev-06', 'US', 'International relations', 'low', 'Multilateral meeting scheduled',
+    'Demonstration entry showing a scheduled international-relations item.', 20),
+  e('ev-07', 'ET', 'Humanitarian', 'critical', 'Displacement response coordination',
+    'Demonstration entry showing how a critical-severity item is highlighted across the map, feed and timeline.', 26),
+  e('ev-08', 'JP', 'Development', 'low', 'Infrastructure programme update',
+    'Demonstration entry showing a development programme progress note.', 30),
+  e('ev-09', 'IN', 'Development', 'low', 'Digital public services expansion',
+    'Demonstration entry showing a second item for the same country, so country panels can list several events.', 36),
+  e('ev-10', 'BD', 'Environmental', 'high', 'Flood-risk bulletin',
+    'Demonstration entry showing a high-severity environmental bulletin.', 34),
+  e('ev-11', 'NG', 'Humanitarian', 'high', 'Health-system capacity watch',
+    'Demonstration entry showing a second item for the same country at a different severity.', 18),
+  e('ev-12', 'FR', 'Political', 'moderate', 'Legislative session outcome',
+    'Demonstration entry showing a political item with moderate severity.', 40),
+  e('ev-13', 'CN', 'Economic', 'low', 'Trade data publication',
+    'Demonstration entry showing a routine economic publication.', 52),
+  e('ev-14', 'ZA', 'Political', 'moderate', 'Energy supply policy debate',
+    'Demonstration entry showing a policy-debate item.', 60),
+  e('ev-15', 'AU', 'Environmental', 'moderate', 'Coastal erosion survey',
+    'Demonstration entry showing an environmental survey result.', 70),
+  e('ev-16', 'GB', 'International relations', 'low', 'Bilateral agreement signed',
+    'Demonstration entry showing an international-relations item.', 76),
+  e('ev-17', 'ID', 'Environmental', 'high', 'Seismic monitoring notice',
+    'Demonstration entry showing a high-severity monitoring notice.', 90),
+  e('ev-18', 'EG', 'Development', 'low', 'Water-management initiative',
+    'Demonstration entry showing a development initiative update.', 100),
+  e('ev-19', 'MX', 'Political', 'moderate', 'Regional election preparations',
+    'Demonstration entry showing a political preparation item.', 110),
+  e('ev-20', 'AR', 'Economic', 'high', 'Inflation pressure note',
+    'Demonstration entry showing a high-severity economic note.', 120),
+  e('ev-21', 'SE', 'Development', 'low', 'Clean-energy investment review',
+    'Demonstration entry showing a development investment review.', 130),
+  e('ev-22', 'CO', 'Humanitarian', 'moderate', 'Humanitarian access assessment',
+    'Demonstration entry showing a moderate humanitarian assessment.', 140),
+  e('ev-23', 'SA', 'International relations', 'moderate', 'Regional summit preparations',
+    'Demonstration entry showing an international-relations preparation item.', 150),
+  e('ev-24', 'CA', 'Environmental', 'low', 'Forest monitoring update',
+    'Demonstration entry showing a routine environmental update.', 160),
+  e('ev-25', 'CL', 'Development', 'low', 'Education programme review',
+    'Demonstration entry showing a development programme review.', 165),
+  e('ev-26', 'NZ', 'Environmental', 'low', 'Biodiversity survey',
+    'Demonstration entry showing a low-severity environmental survey.', 168),
+];
