@@ -1,7 +1,6 @@
 import { Globe, RotateCcw } from 'lucide-react';
 import Panel from '../../components/common/Panel';
 import EmptyState from '../../components/common/EmptyState';
-import DataBadge from '../../components/common/DataBadge';
 import { EVENT_CATEGORIES } from '../../data/taxonomy';
 import { formatRelative } from '../../utils/format';
 
@@ -17,6 +16,8 @@ export default function EventFeed({
   onReset,
   now,
 }) {
+  const hasSampleEvents = events.some((event) => event.isSample);
+
   return (
     <Panel
       title="Global event feed"
@@ -26,7 +27,9 @@ export default function EventFeed({
       flush
       actions={
         <>
-          <DataBadge type="sample" />
+          {hasSampleEvents && (
+            <span className="badge badge-sample">Sample data</span>
+          )}
           {selectedCountry && (
             <button
               type="button"
@@ -44,7 +47,12 @@ export default function EventFeed({
         <EmptyState icon={Globe} title="No events match these filters">
           Try a different region, category or severity.
           <br />
-          <button type="button" className="btn" onClick={onReset} style={{ marginTop: 12 }}>
+          <button
+            type="button"
+            className="btn"
+            onClick={onReset}
+            style={{ marginTop: 12 }}
+          >
             <RotateCcw size={14} /> Reset filters
           </button>
         </EmptyState>
@@ -53,19 +61,43 @@ export default function EventFeed({
           {events.map((event, i) => {
             const Icon = ICONS[event.category];
             const country = countriesById[event.countryId];
+
             return (
-              <li key={event.id} className="reveal-left" style={{ '--i': Math.min(i, 8) + 5 }}>
-                <button type="button" className="feed-item" onClick={() => onOpen(event.id)}>
+              <li
+                key={event.id}
+                className="reveal-left"
+                style={{ '--i': Math.min(i, 8) + 5 }}
+              >
+                <button
+                  type="button"
+                  className="feed-item"
+                  onClick={() => onOpen(event.id)}
+                >
                   <span className={`feed-bar bar-${event.severity}`} />
+
                   <div className="feed-main">
                     <div className="feed-top">
-                      <span className={`severity severity-${event.severity}`}>{event.severity}</span>
-                      <span className="feed-category">{Icon && <Icon size={12} />} {event.category}</span>
-                      <span className="badge badge-sample">Sample</span>
+                      <span className={`severity severity-${event.severity}`}>
+                        {event.severity}
+                      </span>
+
+                      <span className="feed-category">
+                        {Icon && <Icon size={12} />} {event.category}
+                      </span>
+
+                      {event.isSample && (
+                        <span className="badge badge-sample">Sample</span>
+                      )}
                     </div>
+
                     <strong>{event.title}</strong>
+
                     <small>
-                      {country?.name} · {country?.region} · {formatRelative(event.occurredAt, now)}
+                      {country?.name || event.countryName || 'Global'}
+                      {' · '}
+                      {country?.region || event.region || 'Unknown region'}
+                      {' · '}
+                      {formatRelative(event.occurredAt, now)}
                     </small>
                   </div>
                 </button>
