@@ -1,46 +1,59 @@
 /* =========================================
-   UN NEXUS AI — DESIGN TOKENS
-   Every colour, size and spacing value used by the
-   platform lives here. Change a value once and the
-   whole interface updates.
+   UN NEXUS AI — PASTEL DESIGN SYSTEM
+   Primary palette: Lavender, Sage Mint, Sky Blue
 ========================================= */
 
 :root {
-  /* Surfaces (neutral charcoal) */
-  --bg-app: #0f0f10;
-  --bg-chrome: #151516;      /* sidebar + top bar */
-  --surface-1: #1a1a1c;      /* panels */
-  --surface-2: #222225;      /* raised / hover */
-  --surface-3: #2b2b2f;      /* selected */
+  color-scheme: light;
+
+  /* App surfaces */
+  --bg-app: #F7F8F6;
+  --bg-chrome: #F0EDF6;
+  --surface-1: #FFFFFF;
+  --surface-2: #F3F3F6;
+  --surface-3: #EAE7F1;
 
   /* Borders */
-  --border: #2e2e32;
-  --border-strong: #424247;
+  --border: #E4E5E8;
+  --border-strong: #D1D3DA;
 
   /* Text */
-  --text: #ebebe8;
-  --text-muted: #a0a09b;
-  --text-dim: #75756f;
+  --text: #30323B;
+  --text-muted: #666B75;
+  --text-dim: #898E98;
 
-  /* Accents (muted, no neon) */
-  --accent: #cfcbc2;         /* warm silver */
-  --accent-soft: rgba(207, 203, 194, 0.10);
-  --teal: #8fa8a0;
-  --blue: #9a9a9a;
-  --green: #5aa77f;
-  --amber: #d1a050;
-  --red: #c85f5f;
-  --orange: #d98652;
+  /* Primary palette — Lavender */
+  --accent: #79699B;
+  --accent-soft: #EEE9F7;
+  --lavender: #E9E2F7;
+  --lavender-strong: #79699B;
 
-  /* Soft tints used for badges */
-  --green-soft: rgba(90, 167, 127, 0.14);
-  --amber-soft: rgba(209, 160, 80, 0.14);
-  --red-soft: rgba(200, 95, 95, 0.14);
-  --blue-soft: rgba(154, 154, 154, 0.14);
+  /* Secondary palette — Sage Mint */
+  --teal: #64836F;
+  --green: #64836F;
+  --sage: #DFECE3;
+  --sage-strong: #64836F;
+
+  /* Supporting palette — Sky Blue */
+  --blue: #6486A5;
+  --sky: #DDEBF7;
+  --sky-strong: #6486A5;
+
+  /* Restrained semantic accents — same three-colour palette */
+--amber: #6486A5;       /* Sky blue: moderate */
+--orange: #79699B;      /* Lavender: high */
+--red: #594875;         /* Deep lavender: critical */
+
+/* Soft status backgrounds */
+--green-soft: #E7F0E8;
+--amber-soft: #DDEBF7;
+--red-soft: #EEE9F7;
+--blue-soft: #DDEBF7;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Consolas, monospace;
+
   --fs-xs: 11px;
   --fs-sm: 12px;
   --fs-md: 13px;
@@ -57,12 +70,22 @@
   --sp-6: 28px;
 
   /* Shape */
-  --radius-sm: 6px;
-  --radius: 10px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.3), 0 10px 26px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --radius-sm: 7px;
+  --radius: 12px;
+
+  /* Soft shadows */
+  --shadow:
+    0 1px 3px rgba(45, 48, 60, 0.04),
+    0 4px 14px rgba(45, 48, 60, 0.045);
+
+  --shadow-hover:
+    0 3px 8px rgba(45, 48, 60, 0.06),
+    0 10px 26px rgba(45, 48, 60, 0.075);
+
+  --shadow-pop: 0 8px 28px rgba(45, 48, 60, 0.12);
+
+  /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.45);
 
   /* Layout */
   --sidebar-w: 232px;

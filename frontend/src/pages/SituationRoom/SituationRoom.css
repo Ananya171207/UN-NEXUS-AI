@@ -1,4 +1,6 @@
-/* Situation Room page layout */
+/* =========================================
+   SITUATION ROOM — PASTEL LIGHT THEME
+========================================= */
 
 /* FILTER BAR */
 
@@ -6,6 +8,8 @@
   padding: var(--sp-4);
   gap: var(--sp-3);
   margin-bottom: var(--sp-4);
+  background: var(--surface-1);
+  border-color: var(--border);
 }
 
 .filter-row {
@@ -58,7 +62,7 @@
 }
 
 .search-result.highlight {
-  background: var(--surface-3);
+  background: var(--accent-soft);
   color: var(--text);
 }
 
@@ -107,6 +111,9 @@
   position: relative;
   flex: 1;
   min-height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #F3F3F6;
 }
 
 .sr-map-frame .world-map {
@@ -174,7 +181,7 @@
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-soft);
-  border: 1px solid rgba(207, 203, 194, 0.3);
+  border: 1px solid #DDD4ED;
   border-radius: var(--radius-sm);
   white-space: nowrap;
 }
@@ -329,24 +336,24 @@
 .region-row {
   display: block;
   width: 100%;
-  padding: var(--sp-3) var(--sp-3);
+  padding: var(--sp-3);
   margin-bottom: var(--sp-2);
   text-align: left;
   color: inherit;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: 9px;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease);
 }
 
 .region-row:hover {
-  border-color: var(--border-strong);
+  border-color: var(--blue);
   transform: translateX(3px);
 }
 
 .region-row.active {
-  background: var(--surface-3);
+  background: var(--accent-soft);
   border-color: var(--accent);
 }
 
@@ -380,6 +387,7 @@
 .region-foot {
   margin-top: 6px;
   font-size: var(--fs-xs);
+  color: var(--text-muted);
 }
 
 /* TIMELINE */

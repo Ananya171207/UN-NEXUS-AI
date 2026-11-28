@@ -663,3 +663,219 @@
   background: rgba(200, 95, 95, 0.25);
   border-color: var(--red);
 }
+
+/* =========================================================
+   UN NEXUS AI — PASTEL COMPONENT REFINEMENTS
+   Lavender · Sage Mint · Sky Blue
+========================================================= */
+
+/* Clean white panels and metric cards */
+
+.panel,
+.metric-card,
+.modal {
+  background: var(--surface-1);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.panel {
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.panel:hover,
+.metric-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Softer, more readable badges */
+
+.badge {
+  padding: 4px 9px;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  border-radius: 7px;
+}
+
+.badge-sample {
+  color: var(--blue);
+  background: var(--blue-soft);
+  border-color: rgba(100, 134, 165, 0.22);
+}
+
+.badge-verified {
+  color: var(--green);
+  background: var(--green-soft);
+  border-color: rgba(100, 131, 111, 0.22);
+}
+
+.badge-reference {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(121, 105, 155, 0.22);
+}
+
+/* Research provenance */
+
+.badge-prov-ai {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(121, 105, 155, 0.22);
+}
+
+.badge-prov-verified {
+  color: var(--green);
+  background: var(--green-soft);
+  border-color: rgba(100, 131, 111, 0.22);
+}
+
+.badge-prov-external {
+  color: var(--blue);
+  background: var(--blue-soft);
+  border-color: rgba(100, 134, 165, 0.22);
+}
+
+.badge-prov-demo {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(121, 105, 155, 0.22);
+}
+
+/* Severity indicators — restricted pastel palette */
+
+.severity-low {
+  color: var(--green);
+}
+
+.severity-moderate {
+  color: var(--blue);
+}
+
+.severity-high {
+  color: var(--accent);
+}
+
+.severity-critical {
+  color: #594875;
+}
+
+/* Buttons */
+
+.btn {
+  border-radius: 8px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn:hover {
+  box-shadow: var(--shadow);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-danger {
+  color: #594875;
+  background: var(--accent-soft);
+  border-color: #D8CEEA;
+}
+
+.btn-danger:hover {
+  color: #493C70;
+  background: var(--lavender);
+  border-color: var(--accent);
+}
+
+/* Selected and interactive controls */
+
+.chip {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.chip.active {
+  color: #FFFFFF;
+  background: var(--lavender-strong);
+  border-color: var(--lavender-strong);
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Progress and event bars */
+
+.progress-fill {
+  background: var(--lavender-strong);
+}
+
+.bar-low {
+  background: var(--green);
+}
+
+.bar-moderate {
+  background: var(--blue);
+}
+
+.bar-high {
+  background: var(--accent);
+}
+
+.bar-critical {
+  background: #594875;
+}
+
+/* Status pills */
+
+.status-pill.tone-good {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.status-pill.tone-mid {
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.status-pill.tone-low {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Search and form controls */
+
+.search-field:focus-within,
+.select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(121, 105, 155, 0.10);
+}
+
+/* Modal refinement */
+
+.modal {
+  border-radius: 14px;
+}
+
+.modal-backdrop {
+  background: rgba(38, 37, 48, 0.32);
+  backdrop-filter: blur(6px);
+}
+
+/* Consistent hover behaviour */
+
+.icon-btn:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}

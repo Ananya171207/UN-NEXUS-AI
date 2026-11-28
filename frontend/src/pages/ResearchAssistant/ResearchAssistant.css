@@ -966,3 +966,339 @@
     gap: 2px;
   }
 }
+
+/* =========================================================
+   AI GLOBAL RESEARCH ASSISTANT — PASTEL LIGHT THEME
+   ========================================================= */
+
+/* Main research workspace */
+.res-layout {
+  gap: var(--sp-4);
+}
+
+/* Chat history sidebar */
+.history {
+  background: #F0EDF6;
+  border-color: #E4E0EC;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(48, 50, 59, 0.04);
+}
+
+.history-head h3 {
+  color: var(--text);
+}
+
+.history-list li {
+  border-radius: 8px;
+}
+
+.history-list li:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.history-list li.active {
+  background: #E9E2F7;
+  border-left-color: #79699B;
+}
+
+.history-delete:hover {
+  color: #665087;
+  background: #E9E2F7;
+}
+
+/* Main chat surface */
+.res-main {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.res-head {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+}
+
+.res-head h1 {
+  color: var(--text);
+}
+
+/* Live and demo mode banners */
+.mode-banner {
+  border-radius: 9px;
+}
+
+.mode-banner.demo {
+  background: #DDEBF7;
+  border-color: #C7DCEC;
+}
+
+.mode-banner.demo > svg {
+  color: #477FAF;
+}
+
+.mode-banner.live {
+  background: #DFECE3;
+  border-color: #C9DED0;
+}
+
+.mode-banner.live > svg {
+  color: #43845F;
+}
+
+/* Empty state */
+.hero-icon {
+  color: #665087;
+  background: #E9E2F7;
+  border-color: #D8CEEA;
+}
+
+.empty-thread h2 {
+  color: var(--text);
+}
+
+.empty-thread > p {
+  color: var(--text-muted);
+}
+
+/* Suggested research questions */
+.suggestion {
+  background: #F7F6FA;
+  border-color: #E5E1ED;
+  border-radius: 11px;
+}
+
+.suggestion:hover:not(:disabled) {
+  background: #EEE9F7;
+  border-color: #79699B;
+}
+
+.suggestion-icon {
+  color: #665087;
+  background: #E9E2F7;
+  border-radius: 9px;
+}
+
+.suggestion strong {
+  color: var(--text);
+}
+
+/* Chat messages */
+.msg-user {
+  color: var(--text);
+  background: #E9E2F7;
+  border-color: #D8CEEA;
+  border-radius: 14px 14px 4px 14px;
+}
+
+.msg-assistant {
+  color: var(--text);
+  background: #F7F8F6;
+  border-color: #E4E5E8;
+  border-radius: 12px;
+}
+
+.msg-head {
+  color: var(--text);
+}
+
+.bot-avatar {
+  color: #665087;
+  background: #E9E2F7;
+}
+
+@keyframes avatar-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(121, 105, 155, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(121, 105, 155, 0);
+  }
+}
+
+/* Research answer headings and findings */
+.ans-head h4 {
+  color: #79699B;
+}
+
+.ans-title {
+  color: var(--text);
+}
+
+.findings li::marker {
+  color: #79699B;
+}
+
+.ans-summary {
+  color: var(--text);
+}
+
+.ans-paragraph {
+  color: var(--text-muted);
+}
+
+/* Sources and citations */
+.source-main a,
+.cite {
+  color: #665087;
+}
+
+.source-main a:hover,
+.cite:hover {
+  color: #49345F;
+}
+
+.sources li {
+  border-bottom-color: var(--border);
+}
+
+/* Evidence classifications */
+.claim-fact {
+  color: #43845F;
+  border-color: #BBD8C4;
+  background: #DFECE3;
+}
+
+.claim-estimate {
+  color: #477FAF;
+  border-color: #C7DCEC;
+  background: #DDEBF7;
+}
+
+.evidence-sufficient {
+  color: #43845F;
+  background: #DFECE3;
+}
+
+.evidence-limited {
+  color: #477FAF;
+  background: #DDEBF7;
+}
+
+.evidence-insufficient {
+  color: #665087;
+  background: #EEE9F7;
+}
+
+.evidence-quote {
+  border-left-color: #B9A9D5;
+  color: var(--text-muted);
+}
+
+/* Statistics and recommendations */
+.stat-value {
+  color: #665087;
+}
+
+.stat-label {
+  color: var(--text-muted);
+}
+
+.outdated-flag {
+  color: #477FAF;
+}
+
+/* Limitations and notices */
+.limitations {
+  background: #F3F3F6;
+  border-color: var(--border);
+  border-radius: 9px;
+}
+
+.notice {
+  border-radius: 10px;
+}
+
+.notice.error {
+  color: var(--text);
+  background: #F5E9EA;
+  border-color: #E8CDD0;
+}
+
+.notice.error > svg {
+  color: #A56870;
+}
+
+.notice.stopped {
+  background: #F3F3F6;
+  border-color: var(--border);
+}
+
+/* Chat composer */
+.composer {
+  background: #F0EDF6;
+  border-top-color: #E4E0EC;
+}
+
+.composer-box {
+  background: #FFFFFF;
+  border-color: #D9D5E2;
+  border-radius: 12px;
+}
+
+.composer-box:focus-within {
+  border-color: #79699B;
+  box-shadow: 0 0 0 3px rgba(121, 105, 155, 0.12);
+}
+
+.composer textarea {
+  color: var(--text);
+}
+
+.composer textarea::placeholder {
+  color: #898E98;
+}
+
+/* Send button */
+.send-btn {
+  color: #FFFFFF;
+  background: #79699B;
+  border-radius: 9px;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #665087;
+}
+
+.send-btn.stop {
+  color: #49345F;
+  background: #EEE9F7;
+  border-color: #D8CEEA;
+}
+
+/* Composer status */
+.composer-mode.demo {
+  color: #477FAF;
+}
+
+.composer-mode.live {
+  color: #43845F;
+}
+
+/* Related questions */
+.related .chip {
+  border-color: #E1DCEB;
+  background: #F3F0F8;
+}
+
+.related .chip:hover:not(:disabled) {
+  color: #665087;
+  background: #E9E2F7;
+  border-color: #D8CEEA;
+}
+
+/* Smooth visual transitions */
+.history,
+.suggestion,
+.msg-user,
+.msg-assistant,
+.source-main a,
+.composer-box,
+.send-btn {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}

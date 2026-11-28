@@ -1,5 +1,6 @@
 /* =========================================
-   PAGE LAYOUT — header shared by every page
+   PAGE LAYOUT — shared across every page
+   UN NEXUS AI — Pastel Light Theme
 ========================================= */
 
 .page-header {
@@ -14,23 +15,26 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .page-header h1 {
+  color: var(--text);
   font-size: var(--fs-xl);
-  font-weight: 600;
-  letter-spacing: -0.3px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
 }
 
 .page-header p {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: var(--fs-sm);
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
@@ -42,5 +46,10 @@
   .page-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--sp-2);
+  }
+
+  .page-header h1 {
+    font-size: clamp(22px, 6vw, var(--fs-xl));
   }
 }

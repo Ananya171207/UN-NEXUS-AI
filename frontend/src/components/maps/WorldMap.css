@@ -2,47 +2,51 @@
   width: 100%;
   height: 100%;
   min-height: 300px;
-  background: #0f0f10;
+  background: #EAF1F5;
   z-index: 1;
 }
 
-/* Turn the light OpenStreetMap tiles into a calm, dark, neutral map */
+/* Keep OpenStreetMap tiles light, neutral and easy to read */
 .world-map .leaflet-tile-pane {
-  filter: grayscale(1) invert(1) brightness(0.82) contrast(0.95);
+  filter: grayscale(0.35) saturate(0.72) brightness(1.04);
 }
 
-/* Dark-theme the Leaflet controls and tooltips */
+/* Zoom controls */
 .world-map .leaflet-control-zoom {
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .world-map .leaflet-control-zoom a {
-  background: var(--surface-2);
+  background: #FFFFFF;
   color: var(--text);
-  border-bottom-color: var(--border-strong);
-  transition: background 0.2s;
+  border-bottom-color: var(--border);
+  transition: background 0.2s, color 0.2s;
 }
 
 .world-map .leaflet-control-zoom a:hover {
-  background: var(--surface-3);
+  background: var(--lavender);
+  color: var(--accent);
 }
 
+/* Attribution */
 .world-map .leaflet-control-attribution {
-  background: rgba(21, 21, 22, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   color: var(--text-dim);
   font-size: 10px;
 }
 
 .world-map .leaflet-control-attribution a {
-  color: var(--text-muted);
+  color: var(--accent);
 }
 
+/* Tooltips */
 .world-map .leaflet-tooltip {
-  background: var(--surface-2);
+  background: #FFFFFF;
   color: var(--text);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-pop);
   font-family: var(--font-sans);
@@ -50,7 +54,7 @@
 }
 
 .world-map .leaflet-tooltip-top::before {
-  border-top-color: var(--border-strong);
+  border-top-color: var(--border);
 }
 
 /* PINS */
@@ -68,22 +72,36 @@
   cursor: pointer;
 }
 
-.pin-low      { --sev: var(--green); }
-.pin-moderate { --sev: var(--amber); }
-.pin-high     { --sev: var(--orange); }
-.pin-critical { --sev: var(--red); }
-.pin-none     { --sev: var(--text-dim); }
+.pin-low {
+  --sev: #43845F; /* More visible sage green */
+}
+
+.pin-moderate {
+  --sev: #477FAF; /* Clearer sky blue */
+}
+
+.pin-high {
+  --sev: #665087; /* Rich, darker purple */
+}
+
+.pin-critical {
+  --sev: #49345F; /* Deep plum */
+}
+
+.pin-none {
+  --sev: var(--text-dim);
+}
 
 .pin-dot {
   position: absolute;
   inset: 0;
   margin: auto;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: var(--sev);
-  border: 2px solid #151516;
-  box-shadow: 0 0 0 1px var(--sev);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1.5px var(--sev);
   transition: transform 0.25s var(--ease);
 }
 
@@ -112,5 +130,6 @@
 
 .pin-selected .pin-dot {
   transform: scale(1.35);
-  border-color: var(--text);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 2px #665087;
 }

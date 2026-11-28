@@ -416,3 +416,114 @@
     font-size: 14px;
   }
 }
+
+/* =========================================================
+   INDIA VS WORLD — PASTEL LIGHT THEME REFINEMENTS
+   ========================================================= */
+
+/* Informational note */
+.iw-note {
+  color: var(--text-muted);
+  background: #DDEBF7;
+  border: 1px solid #C7DCEC;
+  border-radius: 10px;
+}
+
+.iw-note svg {
+  color: #477FAF;
+}
+
+/* Country selection tags */
+.iw-tag {
+  color: var(--text);
+  background: #F3F1F7;
+  border: 1px solid #E4E0EC;
+  border-radius: 999px;
+}
+
+.iw-tag.india {
+  color: #FFFFFF;
+  background: #79699B;
+  border-color: #79699B;
+}
+
+.iw-tag button:hover {
+  color: #665087;
+  background: #E9E2F7;
+}
+
+/* Country comparison cards */
+.iw-stats .metric-card {
+  background: #FFFFFF;
+  border-color: var(--border);
+  border-radius: 12px;
+}
+
+/* Ranking colours */
+.iw-rank.good,
+.iw-mark.better {
+  color: #43845F;
+}
+
+.iw-rank.low,
+.iw-mark.worse,
+.iw-cell-status {
+  color: #665087;
+}
+
+.iw-mark.same {
+  color: var(--text-dim);
+}
+
+/* India baseline column */
+.iw-table .india-col {
+  background: #EEE9F7;
+  color: var(--text);
+}
+
+.iw-table tbody tr:hover .india-col {
+  background: #E9E2F7;
+}
+
+/* Table headings and indicator labels */
+.iw-country-name,
+.iw-indicator-cell > strong {
+  color: var(--text);
+}
+
+.iw-baseline-label {
+  background: #E9E2F7;
+  color: #665087;
+}
+
+/* Comparison values */
+.iw-cell-value {
+  color: var(--text);
+}
+
+.iw-cell-comparison {
+  border-top-color: var(--border);
+}
+
+/* Table hover */
+.iw-table tbody tr:hover td,
+.iw-table tbody tr:hover th {
+  background: #F3F3F6;
+}
+
+.iw-table tbody tr:hover .india-col {
+  background: #E9E2F7;
+}
+
+/* Progress indicator */
+.iw-rank-list .progress-fill.tone-amber {
+  background: #6486A5;
+}
+
+/* Smooth visual transitions */
+.iw-tag,
+.iw-table td,
+.iw-table th,
+.iw-rank-list li {
+  transition: background 0.2s ease, color 0.2s ease;
+}

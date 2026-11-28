@@ -244,3 +244,91 @@
     text-align: left;
   }
 }
+
+/* =========================================================
+   GLOBAL SITUATION ROOM — PASTEL LIGHT REFINEMENTS
+   ========================================================= */
+
+/* Dashboard spacing and surfaces */
+.metrics-grid,
+.overview-grid {
+  gap: var(--sp-4);
+}
+
+.map-frame {
+  border-bottom-color: var(--border);
+  overflow: hidden;
+}
+
+/* Event feed */
+.event-item {
+  border-bottom-color: var(--border);
+  border-left-color: transparent;
+}
+
+.event-item:hover {
+  background: #F7F6FA;
+}
+
+.event-item.selected {
+  background: #EEE9F7;
+  border-left-color: #79699B;
+}
+
+.event-category {
+  color: #79699B;
+}
+
+.event-item strong {
+  color: var(--text);
+}
+
+.event-item p {
+  color: var(--text-muted);
+}
+
+/* Module list */
+.module-item {
+  color: var(--text-muted);
+  border-bottom-color: var(--border);
+}
+
+.module-item:hover {
+  background: #F0EDF6;
+}
+
+.module-item > svg:first-child {
+  color: #79699B;
+}
+
+.module-item:hover svg:last-child {
+  color: #665087;
+}
+
+.module-item strong {
+  color: var(--text);
+}
+
+/* Dashboard clock */
+.clock strong {
+  color: #665087;
+}
+
+.clock small {
+  color: var(--text-muted);
+}
+
+/* Supporting text */
+.chart-note,
+.page-footer {
+  color: var(--text-dim);
+}
+
+/* Subtle interaction transitions */
+.event-item,
+.module-item {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    padding-left 0.25s ease;
+}

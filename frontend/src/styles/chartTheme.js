@@ -1,22 +1,27 @@
-// Chart libraries (Recharts, Leaflet) need real colour values in JavaScript,
-// so these mirror the CSS variables in tokens.css. Keep the two in sync.
+// Chart libraries (Recharts, Leaflet) need real colour values in JavaScript.
+// These values mirror tokens.css — keep both files in sync.
 
 export const chartColors = {
-  accent: '#cfcbc2',
-  teal: '#8fa8a0',
-  blue: '#9a9a9a',
-  green: '#5aa77f',
-  amber: '#d1a050',
-  red: '#c85f5f',
-  grid: '#2e2e32',
-  axis: '#a0a09b',
-  tooltipBg: '#222225',
-  tooltipBorder: '#424247',
+  // Primary pastel palette
+  accent: '#79699B',       // Lavender
+  teal: '#64836F',         // Sage green
+  blue: '#6486A5',         // Sky blue
+  green: '#64836F',        // Sage green
+
+  // Supporting semantic colours
+  amber: '#6486A5',
+  red: '#594875',
+
+  // Chart surfaces and structure
+  grid: '#E4E5E8',
+  axis: '#898E98',
+  tooltipBg: '#FFFFFF',
+  tooltipBorder: '#E4E5E8',
 };
 
 export const severityColors = {
-  low: '#5aa77f',
-  moderate: '#d1a050',
-  high: '#d98652',
-  critical: '#c85f5f',
+  low: '#64836F',
+  moderate: '#6486A5',
+  high: '#79699B',
+  critical: '#594875',
 };

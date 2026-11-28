@@ -165,3 +165,141 @@
   .sdgt-search { max-width: none; }
   .sdgt-score-chart { height: 240px; }
 }
+
+/* =========================================================
+   SDG TRACKER — PASTEL LIGHT THEME REFINEMENTS
+   ========================================================= */
+
+/* Informational note */
+.sdgt-note {
+  color: var(--text-muted);
+  background: #DDEBF7;
+  border: 1px solid #C7DCEC;
+  border-radius: 10px;
+}
+
+.sdgt-note svg {
+  color: #477FAF;
+}
+
+/* Scope and filter panels */
+.panel.sdgt-scope,
+.panel.sdgt-filters {
+  background: #FFFFFF;
+  border-color: var(--border);
+  border-radius: 12px;
+}
+
+/* Statistics cards */
+.sdgt-stats .metric-card {
+  background: #FFFFFF;
+  border-color: var(--border);
+  border-radius: 12px;
+}
+
+/* SDG cards */
+.sdgt-card {
+  background: #FFFFFF;
+  border-color: var(--border);
+  box-shadow: 0 2px 8px rgba(48, 50, 59, 0.04);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.sdgt-card:hover {
+  background: #F8F7FA;
+  box-shadow: 0 5px 14px rgba(48, 50, 59, 0.08);
+}
+
+.sdgt-card.selected {
+  background: #EEE9F7;
+  border-color: #79699B;
+  box-shadow: 0 0 0 1px #79699B, 0 4px 12px rgba(121, 105, 155, 0.10);
+}
+
+/* Preserve individual SDG goal colours */
+.sdgt-num {
+  color: #FFFFFF;
+  border-radius: 8px;
+}
+
+.sdgt-num.large {
+  border-radius: 10px;
+}
+
+/* Goal titles and scores */
+.sdgt-card-body strong {
+  color: var(--text);
+}
+
+.sdgt-score {
+  color: var(--text);
+}
+
+/* Detail panel */
+.sdgt-detail-panel {
+  background: #FFFFFF;
+  border-color: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.sdgt-detail-head h4 {
+  color: var(--text);
+}
+
+.sdgt-detail-head p {
+  color: var(--text-muted);
+}
+
+/* Progress score */
+.sdgt-big {
+  color: #665087;
+}
+
+.sdgt-detail-score-text {
+  color: var(--text);
+}
+
+/* Indicator cards */
+.sdgt-indicator {
+  background: #F3F3F6;
+  border-color: #E4E5E8;
+  border-radius: 10px;
+}
+
+.sdgt-indicator h6 {
+  color: var(--text);
+}
+
+.sdgt-ind-values strong {
+  color: var(--text);
+}
+
+/* Indicator performance */
+.sdgt-ind-note.good {
+  color: #43845F;
+}
+
+.sdgt-ind-note.bad {
+  color: #665087;
+}
+
+/* Empty indicator state */
+.sdgt-no-ind {
+  background: #F3F3F6;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* Detail section headings */
+.sdgt-ind-head h5 {
+  color: #79699B;
+}
+
+/* Consistent transitions */
+.sdgt-indicator,
+.sdgt-no-ind,
+.sdgt-detail-panel {
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
