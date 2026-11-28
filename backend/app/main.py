@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import configure_logging, settings
-from app.routes import ai, countries, country_events, country_sdg, events, situation
+from app.routes import ai, comparison, countries, country_events, country_sdg, events, situation
 
 configure_logging()
 
@@ -37,6 +37,12 @@ app.include_router(
     country_sdg.router,
     prefix="/api",
     tags=["Global Situation Room"]
+)
+
+app.include_router(
+    comparison.router,
+    prefix="/api",
+    tags=["India vs World"]
 )
 
 app.include_router(

@@ -45,7 +45,8 @@ LLM_API_KEY=your-key-here
 | `GET /api/events/regions/{region}/intelligence` | counts + optional labelled AI summary |
 | `GET /api/events/{id}/insights` | one event: grounded summary, SDG links, classification reasoning |
 | `POST /api/events/enrich` | optional: pre-compute AI labels (cached, capped) |
-| `/indicators/...`, `/compare` | untouched (`/compare` belongs to another module) |
+| `GET /api/compare?countries=IND,USA`, `GET /api/compare/indicators` | India vs World: 2 to 5 countries, per-indicator analytics, data-quality report (**`docs/india-vs-world-api.md`**) |
+| `/countries/{code}/indicators/{indicator}` | untouched |
 
 Full request/response examples and the frontend field mapping: **`docs/situation-room-api.md`**.
 
@@ -62,7 +63,8 @@ app/
     situation.py               /events/regions, /events/map, /situation-room/summary, regional intelligence
     ai.py                      /events/{id}/insights, /events/enrich
     filters.py                 shared query parsing + the one filtered-event loader
-    countries.py               original file (compare/indicators untouched)
+    countries.py               /countries, /countries/{code}, profile, raw indicator
+    comparison.py              /compare, /compare/indicators (India vs World)
   services/
     event_sources.py           UN News + GDELT: cache, circuit breaker, dedupe
     classifier.py              rule-based category + severity (with `signals`)
@@ -72,6 +74,7 @@ app/
     monitoring.py              regions / summary / map built from ONE event list
     sdg.py, event_sdg.py       country SDG signals; event -> SDG keyword rules
     worldbank.py, country_data.py, country_profile.py   (unchanged behaviour)
+    comparison.py              India vs World: validation, bounded fan-out, per-indicator analytics
     llm.py                     Gemini/OpenAI client: timeout, cooldown, hourly cap
     ai_common.py               SQLite-backed cache, grounding checks
     ai_events.py               per-event AI enrichment + feed overlay

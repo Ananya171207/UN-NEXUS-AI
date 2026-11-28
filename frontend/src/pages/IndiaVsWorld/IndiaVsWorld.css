@@ -162,3 +162,257 @@
 }
 
 .iw-rank-list .progress-fill.tone-amber { background: var(--amber); }
+
+/* =========================================================
+   India vs World — comparison table readability improvements
+   ========================================================= */
+
+.iw-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-gutter: stable;
+  padding-bottom: 6px;
+}
+
+.iw-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  font-size: 14px;
+}
+
+.iw-table th,
+.iw-table td {
+  padding: 17px 20px;
+  text-align: right;
+  vertical-align: middle;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+
+.iw-table thead th {
+  padding: 17px 20px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.iw-table thead th:first-child {
+  width: 220px;
+  min-width: 220px;
+  text-align: left;
+}
+
+.iw-table thead th:not(:first-child) {
+  min-width: 210px;
+}
+
+.iw-table tbody th {
+  width: 220px;
+  min-width: 220px;
+  text-align: left;
+  font-weight: 500;
+  white-space: normal;
+}
+
+.iw-indicator-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.iw-indicator-cell > strong {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.iw-indicator-cell small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.iw-indicator-cell .iw-indicator-code {
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  opacity: 0.8;
+}
+
+.iw-country-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+.iw-country-name {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.iw-baseline-label {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.iw-table .india-col {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.iw-table tbody td {
+  min-width: 210px;
+}
+
+.iw-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.iw-cell-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.iw-cell-value {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.iw-cell-year {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-dim);
+  font-weight: 450;
+}
+
+.iw-cell-note,
+.iw-cell-status {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.iw-cell-status {
+  color: var(--orange);
+}
+
+.iw-cell-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  width: 100%;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.iw-difference-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 5px 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.iw-difference-row > span {
+  color: var(--text-dim);
+}
+
+.iw-difference-row > strong {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.iw-percent-value {
+  color: var(--text);
+}
+
+.iw-mark {
+  display: inline-block;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.iw-mark.better {
+  color: var(--green);
+}
+
+.iw-mark.worse {
+  color: var(--orange);
+}
+
+.iw-mark.same {
+  color: var(--text-dim);
+}
+
+.iw-table tbody tr:hover td,
+.iw-table tbody tr:hover th {
+  background: var(--surface-2);
+}
+
+.iw-table tbody tr:hover .india-col {
+  background: var(--accent-soft);
+}
+
+.iw-table-footnote {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .iw-table {
+    min-width: 850px;
+  }
+
+  .iw-table th,
+  .iw-table td {
+    padding: 14px 15px;
+  }
+
+  .iw-cell-value {
+    font-size: 15px;
+  }
+
+  .iw-indicator-cell > strong {
+    font-size: 14px;
+  }
+}

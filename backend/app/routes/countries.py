@@ -1,8 +1,6 @@
 
 import logging
-import time
 
-import pycountry
 import requests
 from fastapi import HTTPException
 from fastapi import APIRouter, Query, Response
@@ -111,79 +109,6 @@ def get_country_indicator(country_code: str, indicator_code: str):
     }
 
 
-INDICATORS = {
-    "gdp_per_capita": "NY.GDP.PCAP.CD",
-    "population": "SP.POP.TOTL",
-    "life_expectancy": "SP.DYN.LE00.IN",
-    "co2_emissions": "EN.GHG.CO2.PC.CE.AR5",
-    "school_enrollment": "SE.SEC.ENRR"
-}
-
-PROFILE_CACHE = {}
-CACHE_DURATION = 3600  # 1 hour
-
-
-def fetch_latest_indicator(country_code, indicator_code):
-
-    url = (
-        f"https://api.worldbank.org/v2/country/"
-        f"{country_code}/indicator/{indicator_code}"
-    )
-
-    params = {
-        "format": "json",
-        "per_page": 10
-    }
-
-    response = requests.get(url, params=params, timeout=15)
-    response.raise_for_status()
-
-    result = response.json()
-
-    if not isinstance(result, list) or len(result) < 2:
-        logger.warning(
-            "Invalid World Bank response for indicator %s: %r", indicator_code, result
-        )
-
-        raise HTTPException(
-           status_code=502,
-           detail=f"Invalid response for indicator: {indicator_code}"
-        )
-
-    records = result[1] or []
-
-    latest = next(
-        (record for record in records if record["value"] is not None),
-        None
-    )
-
-    if latest is None:
-        return {
-            "year": None,
-            "value": None
-        }
-
-    return {
-        "year": latest["date"],
-        "value": latest["value"]
-    }
-
-
-def validate_country_code(country_code: str):
-
-    country_code = country_code.upper()
-
-    country = pycountry.countries.get(alpha_3=country_code)
-
-    if country is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Invalid country code"
-        )
-
-    return country_code
-
-
 @router.get(
     "/countries/{country_code}/profile",
     summary="Country profile",
@@ -202,75 +127,3 @@ def get_country_profile(country_code: str):
         raise HTTPException(status_code=404, detail="Invalid country code")
     except country_profile.NoDataAvailable as error:
         raise HTTPException(status_code=502, detail=str(error))
-
-
-@router.get("/compare")
-def compare_countries(countries: str):
-
-    # Convert comma-separated country codes into a list
-    country_codes = [
-        code.strip().upper()
-        for code in countries.split(",")
-    ]
-
-    # Remove duplicates
-    country_codes = list(dict.fromkeys(country_codes))
-
-    # Require at least 2 and at most 5 countries
-    if len(country_codes) < 2 or len(country_codes) > 5:
-        raise HTTPException(
-            status_code=400,
-            detail="Please provide between 2 and 5 countries"
-        )
-
-    comparison = {}
-
-    try:
-        for code in country_codes:
-
-            # Validate country code
-            code = validate_country_code(code)
-
-            # Check cache first
-            if code in PROFILE_CACHE:
-                cached_data, cached_time = PROFILE_CACHE[code]
-
-                if time.time() - cached_time < CACHE_DURATION:
-                    profile = cached_data
-
-                else:
-                    profile = None
-            else:
-                profile = None
-
-            # Fetch data if not cached
-            if profile is None:
-
-                indicators = {}
-
-                for name, indicator_code in INDICATORS.items():
-                    indicators[name] = fetch_latest_indicator(
-                        code,
-                        indicator_code
-                    )
-
-                profile = {
-                    "country": code,
-                    "source": "World Bank Open Data",
-                    "indicators": indicators
-                }
-
-                PROFILE_CACHE[code] = (profile, time.time())
-
-            comparison[code] = profile["indicators"]
-
-    except requests.RequestException:
-        raise HTTPException(
-            status_code=502,
-            detail="Unable to fetch comparison data from World Bank"
-        )
-
-    return {
-        "source": "World Bank Open Data",
-        "comparison": comparison
-    }
